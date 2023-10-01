@@ -1,0 +1,50 @@
+@import "common/palette.scss";
+
+.indicator{
+    display: flex;
+    column-gap: 0.3em;
+    margin-top: 0.5em ;
+    align-items: center;
+}
+.circles{
+  display: flex;
+    column-gap: 0.3em;
+}
+
+p{
+  margin-right:0.5em
+}
+.circle {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color:$indicator
+
+  }
+  
+ .edit-mode{
+
+  .circle{
+  cursor: pointer;
+ 
+  }
+
+  p{
+    color:$edit-mode-text;
+  }
+
+  
+ }
+  
+  .easy {
+    background-color: $safety;
+  }
+  
+  .medium {
+    background-color:  $warning;
+  }
+  
+  .hard {
+    background-color: $danger;
+  }
+  

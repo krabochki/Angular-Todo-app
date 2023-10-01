@@ -1,0 +1,121 @@
+/* Указываем box sizing */
+
+$maxWidth: 1280;
+@mixin adaptiv-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$maxWidth: $maxWidth - 320;
+	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin adaptiv-padding-top($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$maxWidth: $maxWidth - 320;
+	padding-top: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+*,
+*::before,
+*::after {
+  font-family: Avenir Next Cyr;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  line-height:1;
+  padding:0;
+  border:0;
+  color:inherit;
+  background: none;
+  font-size: inherit;
+  font-weight:400;
+  @include adaptiv-font(18,11 )
+}
+
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+  list-style-position: inside;
+}
+
+
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+
+
+
+}
+body .cont{
+  min-height: 100vh;
+  line-height: 1;
+  background-image: url(assets/images/todo-background-light.jpg);
+  background-position: center right;
+  background-attachment:fixed ;
+  background-size: auto 100vh;
+ display: flex;
+ flex-direction: column;
+
+padding: 0 13%;
+
+@include adaptiv-padding-top(100, 50)
+
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+a,a:visited{
+    text-decoration: none;
+color:inherit
+}
+a:hover{
+    text-decoration: none;
+    color:inherit
+}
+
+img{
+    vertical-align: top;
+}
+/* Наследуем шрифты для инпутов и кнопок */
+
+:focus,:active{outline: none;}
+a:focus,a:active{outline:none
+}
+nav,footer,header,aside{display: block;}
+html,body{
+    height:100%;width:100%;font-size:100%;line-height: 1;
+}
+button{
+    cursor:pointer;
+    background: none;
+
+}
+
+
+
+
+
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,24 @@
+
+@keyframes unchecking {
+    35% {
+      opacity: 0.5;
+      scale: 0.95;
+    }
+  
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  
+  @keyframes checking {
+    35% {
+      opacity: 1;
+      scale: 1;
+    }
+  
+    100% {
+      opacity: 0.5;
+      scale: 0.95;
+    }
+  }

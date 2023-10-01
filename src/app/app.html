@@ -1,0 +1,38 @@
+<h1>{{title}}</h1>
+<p class="label">Твой личный помощник в планировании задач</p>
+
+<div class="main-cont">
+
+  <button [ngClass]="{'active':newTodoMode}"  (click)="newTodoMode=!newTodoMode" class="add-new-todo" title="Добавить новую задачу">{{newTodoMode?'−':'+'}}</button>
+
+  <div [@new-todo] class="new-todo-constructor"   *ngIf="newTodoMode">
+
+    <h3 class="new-todo-header">Новая задача</h3>
+
+    <label >Название:</label>
+    <input [(ngModel)]="name" 
+    maxlength="100"
+    spellcheck="false"
+    autocomplete="off"
+    placeholder="Напиши здесь" name="name" type="text" >
+    <label>Описание</label>
+    <input 
+    maxlength="1000"
+    spellcheck="false"
+    autocomplete="off"
+     [(ngModel)]="description" placeholder="Напиши здесь" name="name" type="text">
+    <div class="new-todo-hardness">
+      <label>Сложность:</label>
+      <app-hardness-indicator   (onChanged)="onChanged($event)"   [editMode]="true"></app-hardness-indicator>
+    </div>
+
+    <label for="date">Дедлайн:</label>
+    <input [(ngModel)]="date" name="date" type="date">
+
+    <button (click)="addNewTodo()">Добавить</button>
+  </div>
+
+  <app-todo [@todo] *ngFor="let todo of todos" [todo]="todo"></app-todo>
+
+
+</div>

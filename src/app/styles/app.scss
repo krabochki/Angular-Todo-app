@@ -1,0 +1,164 @@
+//hello
+
+@import "common/palette.scss";
+@import "common/common.scss";
+
+%tplborder {
+  border-bottom: 5px solid rgb(76, 76, 76);
+}
+@mixin fontz($f, $c) {
+  font-size: $f;
+  color: $c;
+}
+
+.label {
+  text-align: center;
+  letter-spacing: 5px;
+  color: $color;
+  opacity: 0.5;
+  font-weight: 300;
+  width:80%;
+  margin:0 auto;
+  margin-bottom: 1.25em;
+
+}
+.add-new-todo {
+  position: fixed;
+  top: 5rem;
+  right: 6vw;
+  color: $color;
+  backdrop-filter: blur(4px) brightness(105%);
+
+  box-shadow: 0.1em 0.1em 1em rgba($color: $hcolor, $alpha: 0.1);
+
+  border-radius: 0.5em;
+
+  width: 2em;
+  height: 2em;
+  font-weight: 700;
+  background-color: rgba($color: $contrast, $alpha: 0.1);
+  transition: 0.3s ease-in-out;
+
+  &:hover, &.active {
+    box-shadow: 0.1em 0.1em 1em rgba($color: $hcolor, $alpha: 0.2);
+    scale: 1.15;
+    background-color: rgba($color: $contrast, $alpha: 0.15);
+  }
+}
+
+:host ::ng-deep .new-todo-constructor app-hardness-indicator * {
+  font-size: 1em;
+}
+:host ::ng-deep .new-todo-constructor app-hardness-indicator .indicator {
+  flex-direction: column;
+}
+:host ::ng-deep .new-todo-constructor app-hardness-indicator p {
+  display: none;
+}
+
+input[type="text"] {
+  border-bottom: 1px solid $edit-mode-text;
+  padding: 0.1em 0;
+  width: 100%;
+
+  &::placeholder{
+    color:$edit-mode-text;
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0.5;
+  }
+}
+
+.new-todo-constructor {
+  position: fixed;
+  top: 8rem;
+  right: 6vw;
+  padding: 2em 2em;
+  width: max-content;
+  color: $edit-mode-text;
+  font-size: 0.8em;
+  backdrop-filter: blur(8px) brightness(105%);
+
+  box-shadow: 0.1em 0.1em 1em rgba($color: $hcolor, $alpha: 0.1);
+
+  border-radius: 0.5em;
+  z-index: 98;
+
+
+
+  font-weight: 700;
+  background-color: rgba($color: $contrast, $alpha: 0.2);
+  transition: 0.3s ease-in-out;
+
+  & * {
+    font-size: inherit;
+  }
+
+
+  input {
+    font-weight: 300;
+    color: lighten($edit-mode-text,10%)
+  }
+
+  button{
+    display: block;
+    margin:0 auto;
+    margin-top: 0.5em;
+    border-radius: 0.5em;
+    padding:0.4em 0.9em;
+    text-align: center;
+    border:2px solid $edit-mode-text;
+    font-size: 1.1em;
+    background-color: rgba($color: $contrast, $alpha: 0.1);
+
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+
+    &:hover{
+        background-color: rgba($color: $contrast, $alpha: 0.3);
+
+    }
+  }
+  label , .new-todo-hardness{
+    margin-bottom: 0.3em;
+    display: block;
+  }
+  label{
+    font-weight: 400 ;
+  }
+  :host ::ng-deep & app-hardness-indicator, input  {
+    display: block;
+    margin-bottom:0.8em
+  }
+  .new-todo-header {
+    font-size: 1.25em;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0.8em;
+  }
+  .new-todo-hardness{
+    display: flex;
+    align-items: center;
+    column-gap: 0.6em;
+  }
+}
+
+h1 {
+  letter-spacing: 7px;
+  font-weight: 600;
+  font-size: 1.75em;
+  margin-bottom: 0.5em;
+  text-align: center;
+  color: darken($hcolor, 8%);
+}
+
+
+
+.main-cont {
+  display: grid;
+  // grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+@import "common/media.scss";

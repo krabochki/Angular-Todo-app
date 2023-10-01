@@ -1,0 +1,6 @@
+<div class="indicator" [ngClass]="{'edit-mode':editMode}">
+  <p>{{editMode?'Выбери сложность: ':'Сложность: '}} </p>
+    <div class="circles"><div  class="circle" (click)="setHardness(i)" *ngFor="let circle of circles, let i = index" [ngClass]="getIndicatorClasses(i)"></div></div>
+
+  </div>
+  
